@@ -1,27 +1,12 @@
 <div class="container mt-3">
     <h3 class="text-warning">Listado de Productos</h3>
     <ul class="list-group w-50 mx-auto">
-        @for(producto of productos; track producto){
-            <li class="list-group-item text-center">
-                {{producto.descripcion}},
-                ${{producto.precio}}
-            </li>
+        @for(productoElemento of productos; track productoElemento){
+          <app-producto [detalleProducto]="productoElemento"></app-producto>
+
         }
     </ul>
+    <app-formulario-producto (productoNuevo)="agregarProducto($event)"></app-formulario-producto>
 
-    <h5 class="text-success mt-3">Agregar Nuevo Producto</h5>
 
-    <form class="d-flex justify-content-between align-items-center my-4 w-50 mx-auto">
-        <input type="text" id="descripcion" name="descripcion"
-            placeholder="Descripción Producto" class="form-control me-2 w-75"
-            autocomplete="off"
-            [(ngModel)]="descripcionInput"/>
-
-        <input type="number" id="precio" name="precio"
-            placeholder="Precio" class="form-control me-2 w-25"
-            [(ngModel)]="precionInput" />
-            
-        <button type="submit" class="btn btn-primary"
-            (click)="agregarProducto()">Agregar</button>   
-    </form>
 </div>
