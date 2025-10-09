@@ -1,12 +1,15 @@
 <div class="container mt-3">
     <h3 class="text-warning">Listado de Productos</h3>
+    <div>
+      <button class="btn btn-primary my-5" (click)="agregarProducto()">
+        Agregar Producto
+      </button>
+    </div>
     <ul class="list-group w-50 mx-auto">
         @for(productoElemento of productos; track productoElemento){
-          <app-producto [detalleProducto]="productoElemento"></app-producto>
+          <app-producto [producto]="productoElemento"></app-producto>
 
         }
     </ul>
-    <app-formulario-producto></app-formulario-producto>
-
 
 </div>

@@ -1,3 +1,4 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductoService } from './../producto.service';
 import { Producto } from './../producto/producto.model';
 import {
@@ -16,15 +17,32 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './formulario-producto.component.css',
 })
 export class FormularioProductoComponent {
+  productoId: number | null = null;
+  descripcionInput: string = '';
+  precioInput: number | null = null;
 
-    descripcionInput: string ='';
-    precioInput: number | null = null;
+  constructor(
+    private productoService: ProductoService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
-
-    constructor(private productoService: ProductoService){
-
+  ngOnInit() {
+    //Verificamos si debemos cargar un producto ya existente
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      const producto = this.productoService.getProductoPorId(Number(id));
+      if (producto) {
+        //Si encontramos el producto, cargamos sus datos en el formulario
+        this.productoId = producto.id!;
+        this.descripcionInput = producto.descripcion;
+        this.precioInput = producto.precio;
+      }
     }
-  agregarProducto() {
+  }
+
+  guardarProducto(evento: Event) {
+    evento.preventDefault();
     //Validar que sean valores correcto
     if (
       this.descripcionInput.trim() === '' ||
@@ -36,13 +54,21 @@ export class FormularioProductoComponent {
     }
 
     const producto = new Producto(
+      this.productoId!,
       this.descripcionInput,
       this.precioInput
     );
     //Agregamos el nuevo producto usando el servicio
     this.productoService.agregarProducto(producto);
     // Limpiamos los campos del formulario
-    this.descripcionInput= '';
+    this.descripcionInput = '';
     this.precioInput = null;
+    //Redirigir al inicio
+    this.router.navigate(['/']);
+  }
+
+  cancelar() {
+    //Redirigir al inicio
+    this.router.navigate(['/']);
   }
 }
