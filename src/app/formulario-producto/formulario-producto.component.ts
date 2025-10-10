@@ -61,9 +61,7 @@ export class FormularioProductoComponent {
     //Agregamos el nuevo producto usando el servicio
     this.productoService.guardarProducto(producto);
     // Limpiamos los campos del formulario
-    this.productoId = null;
-    this.descripcionInput = '';
-    this.precioInput = null;
+    this.limpiarFormulario();
     //Redirigir al inicio
     this.router.navigate(['/']);
   }
@@ -71,5 +69,19 @@ export class FormularioProductoComponent {
   cancelar() {
     //Redirigir al inicio
     this.router.navigate(['/']);
+  }
+
+  eliminarProducto() {
+    if (this.productoId !== null) {
+      this.productoService.eliminarProducto(this.productoId);
+      this.limpiarFormulario();
+      this.router.navigate(['/']);
+    }
+  }
+
+  limpiarFormulario() {
+    this.productoId = null;
+    this.descripcionInput = '';
+    this.precioInput = null;
   }
 }

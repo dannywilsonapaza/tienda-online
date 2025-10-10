@@ -45,4 +45,11 @@ export class ProductoService {
       return this.productos.find(producto => producto.id === id);
     }
 
+    eliminarProducto(id:number):void{
+      const indice = this.productos.findIndex(p => p.id === id);
+      if(indice !== -1){
+        this.productos.splice(indice, 1);
+      }
+    }
+
 }
