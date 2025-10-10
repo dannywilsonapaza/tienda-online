@@ -26,11 +26,20 @@ export class ProductoService {
 
   productos: Producto[] = [];
 
-
-   agregarProducto(producto:Producto){
-      producto.id = this.idSiguiente++;
-      this.productos.push(producto);
-    }
+  //Agregar o modificar un producto
+   guardarProducto(producto:Producto){
+     if(producto.id === null){
+       //Agregar nuevo producto
+       producto.id = this.idSiguiente++;
+       this.productos.push(producto);
+     }else{
+       //Modificar producto existente
+       const indice = this.productos.findIndex(p => p.id === producto.id);
+       if(indice !== -1){
+         this.productos[indice] = producto;
+       }
+     }
+   }
 
     getProductoPorId(id:number):Producto | undefined{
       return this.productos.find(producto => producto.id === id);
