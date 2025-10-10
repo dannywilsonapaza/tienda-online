@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ProductoService } from '../producto.service';
 import { Producto } from '../producto/producto.model';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-listado-productos',
@@ -15,6 +16,7 @@ import { Router } from '@angular/router';
 export class ListadoProductosComponent {
 
   productos: {[llave:string]: Producto} = {};
+  productosSubscripcion: Subscription | null = null;
 
   constructor(private productoService: ProductoService,
     private router: Router
@@ -25,13 +27,19 @@ export class ListadoProductosComponent {
   ngOnInit() {
     this.cargarProductos();
 
+    //Escuchamos los cambios en la lista de productos
+    this.productosSubscripcion = this.productoService.productosActualizados
+      .subscribe(( productos: {[llave:string]: Producto}) => {
+        this.productos = productos;
+      });
+
   }
 
   cargarProductos() {
     this.productoService.listarProductos()
       .subscribe(( productos: {[llave:string]: Producto}) => {
         this.productos = productos;
-        console.log(this.productos);
+        this.productoService.setProductos(productos); // Notificar a todos los suscriptores
       });
   }
   obtenerLlaves(): string[] {
@@ -44,5 +52,11 @@ export class ListadoProductosComponent {
 
   agregarProducto(){
     this.router.navigate(['/agregar']);
+  }
+
+  ngOnDestroy() {
+    if(this.productosSubscripcion !== null){
+      this.productosSubscripcion.unsubscribe();
+    }
   }
 }

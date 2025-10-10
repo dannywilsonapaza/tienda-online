@@ -11,10 +11,15 @@ export class DatosService {
   url = 'https://tienda-online-549bb-default-rtdb.firebaseio.com/'
 
   constructor(private httpClient: HttpClient) {
-    
+
    }
 
     listarProductos():Observable<{[llave:string]: Producto}>{
       return this.httpClient.get<{[llave:string]: Producto}>(this.url + 'datos.json');
+    }
+
+    guardarProducto(producto:Producto):Observable<any>{
+      //Aqui se generra una llave unica en firebase
+      return this.httpClient.post(this.url + 'datos.json', producto);
     }
 }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Producto } from './producto/producto.model';
 import { DatosService } from './datos.service';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,9 @@ import { DatosService } from './datos.service';
 export class ProductoService {
 
   productos: {[llave:string]: Producto} = {};
+  // Observable para notificar cambios en la lista de productos
+  productosActualizados = new Subject<{[llave:string]: Producto}>();
+
 
   constructor(private datosService: DatosService) {
 
@@ -17,19 +21,25 @@ export class ProductoService {
   }
 
   //Agregar o modificar un producto
-   guardarProducto(producto:Producto){
-    //  if(producto.id === null){
-    //    //Agregar nuevo producto
-    //    producto.id = this.idSiguiente++;
-    //    this.productos.push(producto);
-    //  }else{
-    //    //Modificar producto existente
-    //    const indice = this.productos.findIndex(p => p.id === producto.id);
-    //    if(indice !== -1){
-    //      this.productos[indice] = producto;
-    //    }
-    //  }
-   }
+   guardarProducto(producto:Producto, llave:string | null = null):void{
+    if(llave === null){
+      //Agregar nuevo producto
+      this.datosService.guardarProducto(producto).subscribe(() =>{
+       this.refrescarProductos();
+      });
+    }
+  }
+
+  private refrescarProductos():void{
+    this.listarProductos().subscribe(( productos: {[llave:string]: Producto}) =>{
+      this.setProductos(productos);
+    });
+  }
+
+  setProductos( productos: {[llave:string]: Producto}):void{
+    this.productos = productos;
+    this.productosActualizados.next(this.productos);// emitir la actualización de la lista
+  }
 
     getProductoPorllave(llave:string):Producto | undefined{
       return undefined;

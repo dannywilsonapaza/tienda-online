@@ -59,7 +59,7 @@ export class FormularioProductoComponent {
       this.precioInput
     );
     //Agregamos el nuevo producto usando el servicio
-    this.productoService.guardarProducto(producto);
+    this.productoService.guardarProducto(producto, this.llaveProducto);
     // Limpiamos los campos del formulario
     this.limpiarFormulario();
     //Redirigir al inicio
