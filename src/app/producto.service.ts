@@ -24,10 +24,15 @@ export class ProductoService {
    guardarProducto(producto:Producto, llave:string | null = null):void{
     if(llave === null){
       //Agregar nuevo producto
-      this.datosService.guardarProducto(producto).subscribe(() =>{
+      this.datosService.agregarProducto(producto).subscribe(() =>{
        this.refrescarProductos();
       });
-    }
+    } else {
+      //Modificar producto existente
+      this.datosService.modificarProducto(producto, llave).subscribe(() =>{
+        this.refrescarProductos();
+    });
+  }
   }
 
   private refrescarProductos():void{
@@ -42,15 +47,15 @@ export class ProductoService {
   }
 
     getProductoPorllave(llave:string):Producto | undefined{
-      return undefined;
-      // return this.productos.find(producto => producto.id === id);
+      return this.productos[llave];
+
     }
 
     eliminarProducto(llave:string):void{
-      // const indice = this.productos.findIndex(p => p.id === id);
-      // if(indice !== -1){
-      //   this.productos.splice(indice, 1);
-      // }
+      this.datosService.eliminarProducto(llave).subscribe(() =>{
+        this.refrescarProductos();
+      });
+  
     }
 
 }
