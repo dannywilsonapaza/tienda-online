@@ -1,27 +1,25 @@
 import { Injectable } from '@angular/core';
 import { initializeApp } from 'firebase/app';
-import { Auth, getAuth } from 'firebase/auth';
+import { Auth, connectAuthEmulator, getAuth } from 'firebase/auth';
 import { Firestore, getFirestore } from 'firebase/firestore';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseService {
-  firebaseConfig = {
-  apiKey: "AIzaSyDvifuNmWmQV5fqQ7nYmsBAH4lKoXmeI-Q",
-  authDomain: "tienda-online-549bb.firebaseapp.com",
-  databaseURL: "https://tienda-online-549bb-default-rtdb.firebaseio.com",
-  projectId: "tienda-online-549bb",
-  storageBucket: "tienda-online-549bb.firebasestorage.app",
-  messagingSenderId: "467274790389",
-  appId: "1:467274790389:web:8193695743821798539cbc"
-};
+  public auth: Auth;
+  public firebase: Firestore;
 
-public auth: Auth;
-public firebase: Firestore;
   constructor() {
-    const app = initializeApp(this.firebaseConfig);
+    const app = initializeApp(environment.firebaseConfig);
     this.auth = getAuth(app);
     this.firebase = getFirestore(app);
-   }
+
+    if (environment.useEmulators) {
+      connectAuthEmulator(this.auth, environment.emulators.authHost, {
+        disableWarnings: true
+      });
+    }
+  }
 }

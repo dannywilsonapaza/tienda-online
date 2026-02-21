@@ -12,6 +12,19 @@ ng serve
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
+## Firebase modes (development vs production)
+
+- Development (`ng serve`): uses Firebase emulators automatically (Auth + Realtime Database).
+- Production build (`ng build --configuration production`): uses real Firebase project.
+
+To run emulators locally:
+
+```bash
+npm run start:emulators
+```
+
+Emulator UI is available at `http://localhost:4000/`.
+
 ## Code scaffolding
 
 Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
