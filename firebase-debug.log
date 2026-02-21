@@ -1,0 +1,95 @@
+[debug] [2026-02-21T19:38:46.473Z] ----------------------------------------------------------------------
+[debug] [2026-02-21T19:38:46.477Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\usuario\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
+[debug] [2026-02-21T19:38:46.478Z] CLI Version:   14.20.0
+[debug] [2026-02-21T19:38:46.478Z] Platform:      win32
+[debug] [2026-02-21T19:38:46.478Z] Node Version:  v22.16.0
+[debug] [2026-02-21T19:38:46.478Z] Time:          Sat Feb 21 2026 14:38:46 GMT-0500 (hora estándar de Perú)
+[debug] [2026-02-21T19:38:46.478Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-02-21T19:38:46.797Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-21T19:38:46.798Z] > authorizing via signed-in user (dannyapaza40@gmail.com)
+[debug] [2026-02-21T19:38:47.164Z] java version "24.0.1" 2025-04-15
+Java(TM) SE Runtime Environment (build 24.0.1+9-30)
+
+[debug] [2026-02-21T19:38:47.164Z] Java HotSpot(TM) 64-Bit Server VM (build 24.0.1+9-30, mixed mode, sharing)
+
+[debug] [2026-02-21T19:38:47.184Z] Parsed Java major version: 24
+[info] i  emulators: Starting emulators: auth, database, hosting {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, database, hosting"}}
+[debug] [2026-02-21T19:38:47.209Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-02-21T19:38:47.209Z] [auth] Authentication Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-02-21T19:38:47.209Z] [database] Database Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-02-21T19:38:47.209Z] [hosting] Hosting Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-02-21T19:38:47.209Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}],"database":[{"address":"127.0.0.1","family":"IPv4","port":9000}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5000}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2026-02-21T19:38:47.215Z] Emulator locator file path: C:\Users\usuario\AppData\Local\Temp\hub-tienda-online-549bb.json
+[debug] [2026-02-21T19:38:47.215Z] [hub] writing locator at C:\Users\usuario\AppData\Local\Temp\hub-tienda-online-549bb.json
+[debug] [2026-02-21T19:38:47.224Z] Checked if tokens are valid: false, expires at: 1771651321394
+[debug] [2026-02-21T19:38:47.224Z] Checked if tokens are valid: false, expires at: 1771651321394
+[debug] [2026-02-21T19:38:47.225Z] > refreshing access token with scopes: []
+[debug] [2026-02-21T19:38:47.227Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-02-21T19:38:47.227Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-02-21T19:38:47.426Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-02-21T19:38:47.426Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-02-21T19:38:47.436Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/tienda-online-549bb [none]
+[debug] [2026-02-21T19:38:47.854Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/tienda-online-549bb 200
+[debug] [2026-02-21T19:38:47.854Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/tienda-online-549bb {"projectId":"tienda-online-549bb","projectNumber":"467274790389","displayName":"tienda-online","name":"projects/tienda-online-549bb","resources":{"hostingSite":"tienda-online-549bb","realtimeDatabaseInstance":"tienda-online-549bb-default-rtdb"},"state":"ACTIVE","etag":"1_f13b46e7-10fc-42dd-aabc-7a7d722b7825"}
+[debug] [2026-02-21T19:38:47.854Z] database rules config:  [{"instance":"tienda-online-549bb-default-rtdb","rules":"D:\\Danny\\Plantillas\\Angular\\tienda-online\\database.rules.json"}]
+[debug] [2026-02-21T19:38:47.858Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2026-02-21T19:38:47.858Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2026-02-21T19:38:47.858Z] Ignoring unsupported arg: rules {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: rules"}}
+[debug] [2026-02-21T19:38:47.858Z] Starting Database Emulator with command {"binary":"java","args":["-Duser.language=en","-jar","C:\\Users\\usuario\\.cache\\firebase\\emulators\\firebase-database-emulator-v4.11.2.jar","--host","127.0.0.1","--port",9000,"--single_project_mode","Warning"],"optionalArgs":["port","host","functions_emulator_port","functions_emulator_host","single_project_mode"],"joinArgs":false,"shell":false,"port":9000} {"metadata":{"emulator":{"name":"database"},"message":"Starting Database Emulator with command {\"binary\":\"java\",\"args\":[\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\usuario\\\\.cache\\\\firebase\\\\emulators\\\\firebase-database-emulator-v4.11.2.jar\",\"--host\",\"127.0.0.1\",\"--port\",9000,\"--single_project_mode\",\"Warning\"],\"optionalArgs\":[\"port\",\"host\",\"functions_emulator_port\",\"functions_emulator_host\",\"single_project_mode\"],\"joinArgs\":false,\"shell\":false,\"port\":9000}"}}
+[info] i  database: Database Emulator logging to database-debug.log {"metadata":{"emulator":{"name":"database"},"message":"Database Emulator logging to \u001b[1mdatabase-debug.log\u001b[22m"}}
+[debug] [2026-02-21T19:38:49.704Z] WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by akka.util.Unsafe (file:/C:/Users/usuario/.cache/firebase/emulators/firebase-database-emulator-v4.11.2.jar)
+WARNING: Please consider reporting this to the maintainers of class akka.util.Unsafe
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+ {"metadata":{"emulator":{"name":"database"},"message":"WARNING: A terminally deprecated method in sun.misc.Unsafe has been called\nWARNING: sun.misc.Unsafe::objectFieldOffset has been called by akka.util.Unsafe (file:/C:/Users/usuario/.cache/firebase/emulators/firebase-database-emulator-v4.11.2.jar)\nWARNING: Please consider reporting this to the maintainers of class akka.util.Unsafe\nWARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release\r\n"}}
+[debug] [2026-02-21T19:38:49.902Z] 14:38:49.904 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+ {"metadata":{"emulator":{"name":"database"},"message":"14:38:49.904 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started\r\n"}}
+[debug] [2026-02-21T19:38:50.188Z] 14:38:50.190 [main] INFO com.firebase.server.forge.App$ - Listening at 127.0.0.1:9000
+ {"metadata":{"emulator":{"name":"database"},"message":"14:38:50.190 [main] INFO com.firebase.server.forge.App$ - Listening at 127.0.0.1:9000\r\n"}}
+[debug] [2026-02-21T19:38:59.595Z] Checked if tokens are valid: true, expires at: 1771706326426
+[debug] [2026-02-21T19:38:59.595Z] Checked if tokens are valid: true, expires at: 1771706326426
+[debug] [2026-02-21T19:38:59.595Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/tienda-online-549bb/sites 
+[debug] [2026-02-21T19:39:01.064Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/tienda-online-549bb/sites 200
+[debug] [2026-02-21T19:39:01.064Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/tienda-online-549bb/sites {"sites":[{"name":"projects/tienda-online-549bb/sites/tienda-online-549bb","defaultUrl":"https://tienda-online-549bb.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2026-02-21T19:39:01.065Z] Checked if tokens are valid: true, expires at: 1771706326426
+[debug] [2026-02-21T19:39:01.065Z] Checked if tokens are valid: true, expires at: 1771706326426
+[debug] [2026-02-21T19:39:01.065Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/tienda-online-549bb/webApps/-/config [none]
+[debug] [2026-02-21T19:39:02.128Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/tienda-online-549bb/webApps/-/config 200
+[debug] [2026-02-21T19:39:02.128Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/tienda-online-549bb/webApps/-/config {"projectId":"tienda-online-549bb","appId":"1:467274790389:web:8193695743821798539cbc","databaseURL":"https://tienda-online-549bb-default-rtdb.firebaseio.com","storageBucket":"tienda-online-549bb.firebasestorage.app","apiKey":"AIzaSyDvifuNmWmQV5fqQ7nYmsBAH4lKoXmeI-Q","authDomain":"tienda-online-549bb.firebaseapp.com","messagingSenderId":"467274790389","projectNumber":"467274790389","version":"2"}
+[debug] [2026-02-21T19:39:02.139Z] Checked if tokens are valid: true, expires at: 1771706326426
+[debug] [2026-02-21T19:39:02.140Z] Checked if tokens are valid: true, expires at: 1771706326426
+[debug] [2026-02-21T19:39:02.141Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/tienda-online-549bb [none]
+[debug] [2026-02-21T19:39:02.421Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/tienda-online-549bb 200
+[debug] [2026-02-21T19:39:02.421Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/tienda-online-549bb {"projectId":"tienda-online-549bb","projectNumber":"467274790389","displayName":"tienda-online","name":"projects/tienda-online-549bb","resources":{"hostingSite":"tienda-online-549bb","realtimeDatabaseInstance":"tienda-online-549bb-default-rtdb"},"state":"ACTIVE","etag":"1_f13b46e7-10fc-42dd-aabc-7a7d722b7825"}
+[info] i  hosting[tienda-online-549bb]: Serving hosting files from: dist/tienda-online/browser {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mdist/tienda-online/browser\u001b[22m"}}
+[info] +  hosting[tienda-online-549bb]: Local server: http://127.0.0.1:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://127.0.0.1:5000\u001b[22m\u001b[24m"}}
+[debug] [2026-02-21T19:39:02.499Z] >>> [apiv2][query] PUT http://127.0.0.1:9000/.settings/rules.json ns=tienda-online-549bb-default-rtdb
+[debug] [2026-02-21T19:39:02.500Z] >>> [apiv2][body] PUT http://127.0.0.1:9000/.settings/rules.json "{\r\n  \"rules\": {\r\n    \".read\": \"auth != null\",  // 2025-11-9\r\n    \".write\": \"auth != null\",  // 2025-11-9\r\n  }\r\n}"
+[debug] [2026-02-21T19:39:03.501Z] 14:39:03.504 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO com.firebase.core.namespace.NamespaceActor - tienda-online-549bb-default-rtdb successfully activated FBKV (SurveyIdle(0)) wait: 428ms, init: 0ms
+ {"metadata":{"emulator":{"name":"database"},"message":"14:39:03.504 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO com.firebase.core.namespace.NamespaceActor - tienda-online-549bb-default-rtdb successfully activated FBKV (SurveyIdle(0)) wait: 428ms, init: 0ms\r\n"}}
+[debug] [2026-02-21T19:39:03.781Z] 14:39:03.784 [NamespaceSystem-blocking-namespace-operation-dispatcher-6] INFO com.firebase.core.namespace.StateManager - Namespace tienda-online-549bb-default-rtdb status Active to Active
+ {"metadata":{"emulator":{"name":"database"},"message":"14:39:03.784 [NamespaceSystem-blocking-namespace-operation-dispatcher-6] INFO com.firebase.core.namespace.StateManager - Namespace tienda-online-549bb-default-rtdb status Active to Active\r\n"}}
+[debug] [2026-02-21T19:39:03.855Z] <<< [apiv2][status] PUT http://127.0.0.1:9000/.settings/rules.json 200
+[debug] [2026-02-21T19:39:03.856Z] <<< [apiv2][body] PUT http://127.0.0.1:9000/.settings/rules.json {"status":"ok"}
+[debug] [2026-02-21T19:39:03.864Z] Could not find VSCode notification endpoint: FetchError: request to http://localhost:40001/vscode/notify failed, reason: . If you are not running the Firebase Data Connect VSCode extension, this is expected and not an issue.
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────────┬────────────────┬────────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI            │
+├────────────────┼────────────────┼────────────────────────────────┤
+│ Authentication │ 127.0.0.1:9099 │ http://127.0.0.1:4000/auth     │
+├────────────────┼────────────────┼────────────────────────────────┤
+│ Database       │ 127.0.0.1:9000 │ http://127.0.0.1:4000/database │
+├────────────────┼────────────────┼────────────────────────────────┤
+│ Hosting        │ 127.0.0.1:5000 │ n/a                            │
+└────────────────┴────────────────┴────────────────────────────────┘
+  Emulator Hub host: 127.0.0.1 port: 4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
